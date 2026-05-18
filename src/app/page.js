@@ -2,7 +2,6 @@ import Banner from "@/components/homePage/Banner";
 import AdoptPets from "@/components/homePage/extraStatic/AdoptPets";
 import PetCareTips from "@/components/homePage/extraStatic/PetCareTips";
 import SuccessStories from "@/components/homePage/extraStatic/SuccessStories";
-import Image from "next/image";
 
 export default function Home() {
   return (

@@ -1,63 +1,73 @@
 import Image from "next/image";
 import Logo from "@/assets/logo.webp";
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-black text-white mt-10">
-      <div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* LEFT - Logo + Name + Description */}
+    <footer className="bg-black text-white mt-10">
+      <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-3 gap-12">
+        {/* LEFT - Logo + Description */}
         <div>
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex items-center gap-3 mb-4">
             <Image
               src={Logo}
               alt="Petopia Logo"
-              width={40}
-              height={40}
+              width={42}
+              height={42}
               className="rounded-full"
             />
             <h2 className="text-xl font-bold">Petopia</h2>
           </div>
 
-          <p className="text-sm text-gray-300 leading-relaxed">
-            Petopia is a modern pet adoption platform where you can find loving
-            pets and give them a forever home. Adopt, don’t shop ❤️
+          <p className="text-sm text-gray-400 leading-relaxed">
+            Petopia is a modern pet adoption platform where users can discover,
+            adopt, and give loving homes to pets. Every pet deserves a second
+            chance
           </p>
         </div>
 
-        {/* MIDDLE - Social Icons */}
-        <div>
-          <h2 className="text-lg font-bold mb-3">Follow Us</h2>
+        {/* MIDDLE - Contact Info */}
+        <div className="text-center">
+          <h2 className="text-lg font-bold mb-4">Contact Us</h2>
 
-          <div className="flex flex-col gap-3 text-gray-300">
-            <a href="#" className="hover:text-blue-400">
-              🔵 Facebook
-            </a>
-            <a href="#" className="hover:text-pink-400">
-              📸 Instagram
-            </a>
-            <a href="#" className="hover:text-sky-400">
-              🐦 Twitter
-            </a>
-            <a href="#" className="hover:text-blue-300">
-              💼 LinkedIn
-            </a>
+          <div className="text-gray-400 text-sm space-y-3">
+            <p>📧 support@petopia.com</p>
+            <p>📞 +880 17XXXXXXXX</p>
+            <p>📍 Sylhet, Bangladesh</p>
           </div>
         </div>
 
-        {/* RIGHT - Contact Info */}
-        <div>
-          <h2 className="text-lg font-bold mb-3">Contact Us</h2>
+        {/* RIGHT - Social Links */}
+        <div className="text-center">
+          <h2 className="text-lg font-bold mb-4">Follow Us</h2>
 
-          <div className="text-gray-300 space-y-2 text-sm">
-            <p>Email: support@petopia.com</p>
-            <p>Phone: +880 17XXXXXXXX</p>
-            <p>Location: Sylhet, Bangladesh</p>
+          <div className="flex justify-center items-center gap-5">
+            <a
+              href="#"
+              className="w-11 h-11 flex items-center justify-center rounded-full bg-white/40 hover:bg-blue-600 hover:scale-110 transition"
+            >
+              <FaFacebook size={18} />
+            </a>
+
+            <a
+              href="#"
+              className="w-11 h-11 flex items-center justify-center rounded-full bg-white/40 hover:bg-pink-500 hover:scale-110 transition"
+            >
+              <FaInstagram size={18} />
+            </a>
+
+            <a
+              href="#"
+              className="w-11 h-11 flex items-center justify-center rounded-full bg-white/40 hover:bg-sky-500 hover:scale-110 transition"
+            >
+              <FaTwitter size={18} />
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Bottom Copyright */}
-      <div className="border-t border-gray-700 text-center py-4 text-sm text-gray-400">
+      {/* Bottom */}
+      <div className="border-t border-gray-800 text-center py-4 text-sm text-gray-500">
         © {new Date().getFullYear()} Petopia. All rights reserved.
       </div>
     </footer>

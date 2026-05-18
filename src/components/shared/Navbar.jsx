@@ -23,28 +23,28 @@ const Navbar = () => {
           <h1 className="text-xl font-bold">Petopia</h1>
         </div>
 
-        {/* Desktop Menu */}
+       
         <div className="hidden md:flex gap-6">
           <Link href="/" className="hover:text-blue-500">
             Home
           </Link>
-          <Link href="/all-pets" className="hover:text-blue-500">
+          <Link href="/all-pets" className="hover:text-blue-600">
             All Pets
           </Link>
         </div>
 
-        {/* Desktop Button */}
+       
         <button className="hidden md:block px-4 py-2 bg-blue-500 text-white rounded">
           Login
         </button>
 
-        {/* Mobile Menu Button */}
+      
         <button className="md:hidden text-2xl" onClick={() => setOpen(!open)}>
           {open ? "✕" : "☰"}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+     
       {open && (
         <div className="md:hidden mt-4 flex flex-col gap-3">
           <Link href="/" onClick={() => setOpen(false)}>

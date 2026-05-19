@@ -68,7 +68,7 @@ const Footer = () => {
 
       {/* Bottom */}
       <div className="border-t border-gray-800 text-center py-4 text-sm text-gray-500">
-        © {new Date().getFullYear()} Petopia. All rights reserved.
+        © {new Date().getFullYear()} Petopia. All rights reserved by Pollob Debnath
       </div>
     </footer>
   );

@@ -57,9 +57,9 @@ const stories = [
 const SuccessStories = () => {
   return (
     <section className="w-full py-20 bg-gray-200">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
-        <div className="text-center">
+      <div className="max-w-7xl mx-auto ">
+      
+        <div className="text-center px-6">
           <h2 className="text-4xl font-bold">Success Stories </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
             Explore real adoption experiences from Petopia users who found
@@ -67,7 +67,7 @@ const SuccessStories = () => {
           </p>
         </div>
 
-        {/* MARQUEE */}
+       
         <div className="mt-14">
           <Marquee speed={50} pauseOnHover={true}>
             <div className="flex gap-3">
@@ -76,27 +76,26 @@ const SuccessStories = () => {
                   key={index}
                   className="flex-shrink-0 w-[280px] h-[280px] rounded-full bg-white border border-gray-200 shadow-md hover:shadow-2xl transition flex flex-col items-center justify-center text-center p-6 mx-4"
                 >
-                  {/* Avatar */}
+                
                   <img
                     src={story.image}
                     alt={story.name}
                     className="w-16 h-16 rounded-full object-cover border-4 border-blue-100"
                   />
 
-                  {/* Name */}
+                
                   <h3 className="mt-3 text-lg font-bold">{story.name}</h3>
 
-                  {/* Pet */}
                   <p className="text-blue-500 text-sm font-medium">
                     Adopted {story.pet}
                   </p>
 
-                  {/* Description */}
+                
                   <p className="mt-2 text-gray-600 text-xs leading-relaxed px-4">
                     {story.desc}
                   </p>
 
-                  {/* Stars */}
+                
                   <div className="flex gap-1 mt-3 text-yellow-400">
                     <Star size={14} fill="currentColor" />
                     <Star size={14} fill="currentColor" />

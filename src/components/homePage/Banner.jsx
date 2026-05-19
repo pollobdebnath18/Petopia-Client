@@ -19,7 +19,7 @@ const Banner = () => {
           </p>
 
           <Link href="/pets">
-            <button className="mt-7 px-7 py-3 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600 transition cursor-pointer">
+            <button className="mt-7 px-7 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg font-medium shadow-md hover:from-blue-600 hover:to-cyan-600 hover:shadow-lg transition-all duration-300 cursor-pointer">
               Adopt Now
             </button>
           </Link>

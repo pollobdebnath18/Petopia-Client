@@ -66,7 +66,7 @@ const PetsCard = ({ pet }) => {
 
         {/* Buttons */}
         <div className="flex gap-3">
-          <Link href={`/pets/${pet._id}`} className="w-full">
+          <Link href={`/all-pets/${pet._id}`} className="w-full">
             <button className="w-full py-2 rounded-lg border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition cursor-pointer">
               View Details
             </button>

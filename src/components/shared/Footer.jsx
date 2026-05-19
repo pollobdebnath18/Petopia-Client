@@ -9,14 +9,19 @@ const Footer = () => {
         {/* LEFT - Logo + Description */}
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <Image
-              src={Logo}
-              alt="Petopia Logo"
-              width={42}
-              height={42}
-              className="rounded-full"
-            />
-            <h2 className="text-xl font-bold">Petopia</h2>
+            <div className="h-[42px] w-[42px] rounded-full overflow-hidden border border-gray-200 shadow-sm">
+              <Image
+                src={Logo}
+                alt="Petopia Logo"
+                width={42}
+                height={42}
+                className="object-cover w-full h-full"
+              />
+            </div>
+
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+              Petopia
+            </h2>
           </div>
 
           <p className="text-sm text-gray-400 leading-relaxed">
@@ -68,7 +73,8 @@ const Footer = () => {
 
       {/* Bottom */}
       <div className="border-t border-gray-800 text-center py-4 text-sm text-gray-500">
-        © {new Date().getFullYear()} Petopia. All rights reserved by Pollob Debnath
+        © {new Date().getFullYear()} Petopia. All rights reserved by Pollob
+        Debnath
       </div>
     </footer>
   );

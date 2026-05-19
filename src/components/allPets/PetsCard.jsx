@@ -67,12 +67,12 @@ const PetsCard = ({ pet }) => {
         {/* Buttons */}
         <div className="flex gap-3">
           <Link href={`/all-pets/${pet._id}`} className="w-full">
-            <button className="w-full py-2 rounded-lg border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition cursor-pointer">
+            <button className="w-full py-2 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer">
               View Details
             </button>
           </Link>
 
-          <button className="w-full py-2 rounded-lg bg-green-500 text-white hover:bg-green-600 transition cursor-pointer">
+          <button className="w-full py-2 rounded-xl bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 text-white font-semibold shadow-md hover:from-green-600 hover:via-emerald-600 hover:to-teal-600 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer">
             Adopt Now
           </button>
         </div>

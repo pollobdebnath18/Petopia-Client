@@ -61,7 +61,7 @@ const SignUpPage = () => {
     <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-16 px-6 bg-gradient-to-br from-sky-50 via-white to-emerald-50">
       {/* LEFT SIDE - LOTTIE */}
       <div className="flex-1 flex justify-center items-center">
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-md pb-20">
           <Lottie animationData={LottiAnimatin} loop />
         </div>
       </div>
@@ -71,7 +71,7 @@ const SignUpPage = () => {
         <div className="w-full max-w-md bg-white shadow-xl rounded-3xl p-8">
           {/* HEADER */}
           <div className="text-center mb-6">
-            <h1 className="text-3xl font-bold text-gray-800">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-cyan-400 text-transparent bg-clip-text text-center">
               Create Account 🐾
             </h1>
             <p className="text-sm text-gray-500 mt-1">
@@ -168,10 +168,7 @@ const SignUpPage = () => {
             </div>
 
             {/* BUTTON */}
-            <Button
-              type="submit"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white w-full rounded-xl py-2 mt-2"
-            >
+            <Button type="submit" className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300">
               Create Account
             </Button>
           </form>

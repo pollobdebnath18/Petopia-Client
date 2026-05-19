@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Logo from "@/assets/logo.webp";
 import { authClient } from "@/lib/auth-client";
-import { FaHome, FaPaw, FaPlus, FaHeart } from "react-icons/fa";
+import { FaHome, FaPaw, FaPlus, FaHeart, FaList, FaSignOutAlt } from "react-icons/fa";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -38,13 +38,15 @@ const Navbar = () => {
       <div className="flex items-center justify-between">
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-3">
-          <Image
-            src={Logo}
-            alt="logo"
-            width={45}
-            height={45}
-            className="rounded-full"
-          />
+          <div className="w-[42px] h-[42px] rounded-full overflow-hidden border border-gray-200 shadow-sm">
+            <Image
+              src={Logo}
+              alt="logo"
+              width={42}
+              height={42}
+              className="object-cover w-full h-full"
+            />
+          </div>
           <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
             Petopia
           </h1>
@@ -97,33 +99,44 @@ const Navbar = () => {
 
             {/* DROPDOWN */}
             <div className="absolute right-0 top-14 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden">
-              <Link
-                href="/my-requests"
-                className="flex items-center gap-2 px-4 py-3 hover:bg-gray-100 text-sm"
-              >
-                <FaHeart />
-                My Requests
-              </Link>
+              <div className="space-y-2 p-2">
+                <Link
+                  href="/my-requests"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-gradient-to-r hover:from-pink-500 hover:to-rose-500 hover:text-white text-gray-700 shadow-sm hover:shadow-md transition-all duration-300 group"
+                >
+                  <FaHeart className="text-pink-500 group-hover:text-white" />
+                  <span className="font-medium">My Requests</span>
+                </Link>
 
-              <Link
-                href="/add-pet"
-                className="flex items-center gap-2 px-4 py-3 hover:bg-gray-100 text-sm"
-              >
-                <FaPlus />
-                Add Pet
-              </Link>
+                <Link
+                  href="/add-pet"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 hover:text-white text-gray-700 shadow-sm hover:shadow-md transition-all duration-300 group"
+                >
+                  <FaPlus className="text-blue-500 group-hover:text-white" />
+                  <span className="font-medium">Add Pet</span>
+                </Link>
+
+                <Link
+                  href="/my-listings"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-teal-500 hover:text-white text-gray-700 shadow-sm hover:shadow-md transition-all duration-300 group"
+                >
+                  <FaList className="text-emerald-500 group-hover:text-white" />
+                  <span className="font-medium">My Listings</span>
+                </Link>
+              </div>
 
               <button
                 onClick={handleSignOut}
-                className="w-full text-left px-4 py-3 text-sm text-red-500 hover:bg-red-50"
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-red-600 hover:bg-gradient-to-r hover:from-red-500 hover:to-rose-500 hover:text-white transition-all duration-300 cursor-pointer group"
               >
-                Logout
+                <FaSignOutAlt className="group-hover:text-white" />
+                <span className="font-medium">Logout</span>
               </button>
             </div>
           </div>
         ) : (
           <Link href="/signin" className="hidden md:block">
-            <button className="px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium shadow hover:scale-105 transition">
+            <button className="px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium shadow hover:scale-105 transition cursor-pointer">
               Sign In
             </button>
           </Link>
@@ -131,7 +144,7 @@ const Navbar = () => {
 
         {/* MOBILE MENU BUTTON */}
         <button
-          className="md:hidden text-3xl text-gray-700"
+          className="md:hidden text-3xl text-gray-700 cursor-pointer"
           onClick={() => setOpen(!open)}
         >
           {open ? "✕" : "☰"}
@@ -166,7 +179,7 @@ const Navbar = () => {
 
           {!user && (
             <Link href="/signin">
-              <button className="w-full bg-blue-500 text-white py-3 rounded-xl">
+              <button className="w-full bg-blue-500 text-white py-3 rounded-xl cursor-pointer">
                 Sign In
               </button>
             </Link>

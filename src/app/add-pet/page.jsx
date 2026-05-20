@@ -15,7 +15,7 @@ const AddPetPage = () => {
 
     const formData = new FormData(e.target);
     const petsData = Object.fromEntries(formData.entries());
-    console.log(petsData);
+    // console.log(petsData);
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/pets`, {
       method: "POST",
@@ -125,8 +125,8 @@ const AddPetPage = () => {
             required
           />
           <input
-            name="owner-email"
-            value={`${user?.email}`}
+            name="ownerEmail"
+            value={user?.email || ""}
             readOnly
             className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />

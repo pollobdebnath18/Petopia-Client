@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic";
 import FilterFunctionality from "@/components/allPets/FilterFunctionality";
 import PetsCard from "@/components/allPets/PetsCard";
 import SearchFilter from "@/components/allPets/SearchFunctionality";
+import SortPriceFunctionality from "@/components/allPets/SortPriceFunctionality";
 import { fetchAllPets } from "@/lib/data";
 
 const AllPetsPage = async ({ searchParams }) => {
@@ -9,7 +10,9 @@ const AllPetsPage = async ({ searchParams }) => {
 
   const search = sParams.search || "";
   const species = sParams.species || "";
-  const pets = await fetchAllPets(search, species);
+  const sort = sParams.sort || "";
+
+  const pets = await fetchAllPets(search, species, sort);
 
   return (
     <div>
@@ -27,7 +30,7 @@ const AllPetsPage = async ({ searchParams }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-6">
           <SearchFilter></SearchFilter>
           <FilterFunctionality></FilterFunctionality>
-          <div></div>
+          <SortPriceFunctionality></SortPriceFunctionality>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">

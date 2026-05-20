@@ -5,8 +5,11 @@ import SearchFilter from "@/components/allPets/SearchFunctionality";
 import { fetchAllPets } from "@/lib/data";
 
 const AllPetsPage = async ({ searchParams }) => {
-  const sParams = await searchParams;
-  const pets = await fetchAllPets(sParams?.search || "");
+  const sParams = (await searchParams) || {};
+
+  const search = sParams.search || "";
+  const species = sParams.species || "";
+  const pets = await fetchAllPets(search, species);
 
   return (
     <div>

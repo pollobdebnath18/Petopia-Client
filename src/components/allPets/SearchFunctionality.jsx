@@ -38,7 +38,7 @@ const SearchFilter = () => {
 
         <button
           onClick={handleSearch}
-          className="h-10 px-6 rounded-xl bg-blue-600 text-white"
+          className="h-10 px-6 rounded-xl bg-blue-600 text-white cursor-pointer"
         >
           Search
         </button>

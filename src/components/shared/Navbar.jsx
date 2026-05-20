@@ -6,7 +6,14 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Logo from "@/assets/logo.webp";
 import { authClient } from "@/lib/auth-client";
-import { FaHome, FaPaw, FaPlus, FaHeart, FaList, FaSignOutAlt } from "react-icons/fa";
+import {
+  FaHome,
+  FaPaw,
+  FaPlus,
+  FaHeart,
+  FaList,
+  FaSignOutAlt,
+} from "react-icons/fa";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -135,11 +142,51 @@ const Navbar = () => {
             </div>
           </div>
         ) : (
-          <Link href="/signin" className="hidden md:block">
-            <button className="px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium shadow hover:scale-105 transition cursor-pointer">
-              Sign In
-            </button>
-          </Link>
+          <div className="hidden md:flex items-center gap-3">
+            {/* SIGN IN */}
+            <Link href="/signin">
+              <button
+                className="
+        px-5 py-2 rounded-full
+        border border-blue-500
+        text-blue-600 font-medium
+        bg-transparent
+
+        hover:bg-gradient-to-r
+        hover:from-blue-500
+        hover:via-cyan-500
+        hover:to-blue-600
+        hover:text-white
+
+        shadow-sm hover:shadow-lg
+        transition-all duration-300
+        cursor-pointer
+      "
+              >
+                Sign In
+              </button>
+            </Link>
+
+            {/* GET STARTED */}
+            <Link href="/signup">
+              <button
+                className="
+        px-5 py-2 rounded-full
+        text-white font-medium
+
+        bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500
+        hover:from-blue-700 hover:via-blue-500 hover:to-cyan-600
+
+        shadow-md hover:shadow-xl
+        transform hover:-translate-y-0.5
+        transition-all duration-300
+        cursor-pointer
+      "
+              >
+                Get Started
+              </button>
+            </Link>
+          </div>
         )}
 
         {/* MOBILE MENU BUTTON */}

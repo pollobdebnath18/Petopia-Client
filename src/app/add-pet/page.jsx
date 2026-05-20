@@ -38,14 +38,14 @@ const AddPetPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50 flex items-center justify-center p-5">
-      <div className="w-full max-w-3xl bg-white/80 backdrop-blur-xl shadow-xl rounded-2xl p-8 border border-gray-100">
-        <h1 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-blue-600 to-cyan-500 text-transparent bg-clip-text">
+      <div className="w-full max-w-3xl bg-white/80 backdrop-blur-xl shadow-xl rounded-2xl p-5 border border-gray-100">
+        <h1 className="text-3xl font-bold text-center mb-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-transparent bg-clip-text">
           Add New Pet 🐾
         </h1>
 
         <form
           onSubmit={handleSubmit}
-          className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 gap-3"
         >
           <input
             name="petName"
@@ -134,7 +134,7 @@ const AddPetPage = () => {
           <textarea
             name="description"
             placeholder="Description..."
-            rows="4"
+            rows="2"
             className="border rounded-lg p-3 md:col-span-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
 

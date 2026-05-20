@@ -3,6 +3,8 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { DeleteCard } from "./DeleteCard";
+import EditModal from "./EditModal";
+import RequestModal from "./RequestModal";
 
 const MyListingCard = ({ pet, onRequests, onDelete }) => {
   const router = useRouter();
@@ -39,38 +41,31 @@ const MyListingCard = ({ pet, onRequests, onDelete }) => {
       </div>
 
       <div className="flex flex-col gap-2 mt-2">
-        <div className="flex gap-2">
-          <button
-            onClick={() => onRequests?.(pet)}
-            className="flex-1 px-3 py-2 rounded-lg text-black outline hover:bg-blue-600 transition cursor-pointer"
-          >
-            Requests
-          </button>
-
-          <button
-            onClick={() => router.push(`/pets/edit/${_id}`)}
-            className="flex-1 px-3 py-2 rounded-lg outline  text-black hover:bg-yellow-600 transition cursor-pointer"
-          >
-            Edit
-          </button>
-        </div>
-
-        <div className="flex gap-2 mt-2">
+        <div className="flex  gap-2">
           {/* VIEW BUTTON */}
           <button
             onClick={() => router.push(`/all-pets/${_id}`)}
             className="
-      flex-1 px-3 py-2 rounded-lg text-white font-medium
-      bg-gradient-to-r from-blue-500 via-blue-600 to-cyan-500
-      hover:from-blue-600 hover:via-cyan-500 hover:to-blue-700
-      shadow-md hover:shadow-xl
-      transform hover:-translate-y-0.5
-      transition-all duration-300 ease-in-out
-      cursor-pointer
+       flex-1 px-3 py-2 rounded-lg
+          border border-blue-500
+          text-blue-600 font-medium
+          bg-transparent
+          hover:text-white
+          hover:border-transparent
+          hover:bg-gradient-to-r
+          hover:from-blue-500
+          hover:via-cyan-500
+          hover:to-blue-700
+          transition-all duration-300 cursor-pointer
     "
           >
             View
           </button>
+          <EditModal pet={pet} />
+        </div>
+
+        <div className="flex gap-2 mt-2">
+          <RequestModal pet={pet}></RequestModal>
 
           {/* DELETE BUTTON */}
 

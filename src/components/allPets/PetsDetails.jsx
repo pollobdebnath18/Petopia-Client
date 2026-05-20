@@ -26,7 +26,7 @@ const PetsDetails = ({ pet }) => {
   } = pet;
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className=" ">
       {/* LEFT SIDE - 50% */}
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
         {/* IMAGE */}
@@ -155,23 +155,7 @@ const PetsDetails = ({ pet }) => {
           </div>
         </div>
       </div>
-      {/* RIGHT SIDE - 50% */}
-      <div className="bg-white rounded-2xl shadow-lg p-6 h-fit">
-        <h2 className="text-xl font-bold mb-4">Adoption Panel</h2>
-
-        <p className="text-gray-500 text-sm">You can add here:</p>
-
-        <ul className="list-disc ml-5 text-gray-600 text-sm mt-3 space-y-1">
-          <li>Adoption form</li>
-          <li>Owner contact actions</li>
-          <li>Similar pets</li>
-          <li>Request adoption button</li>
-        </ul>
-
-        <button className="mt-6 w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition cursor-pointer">
-          Adopt Now
-        </button>
-      </div>
+     
     </div>
   );
 };

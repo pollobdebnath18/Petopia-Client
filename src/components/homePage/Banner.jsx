@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import BannerImg from "@/assets/banner_cat.avif";
+import { ArrowRight } from "lucide-react";
 
 const Banner = () => {
   return (
@@ -18,9 +19,10 @@ const Banner = () => {
             a new best friend today.
           </p>
 
-          <Link href="/pets">
-            <button className="mt-7 px-7 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg font-medium shadow-md hover:from-blue-600 hover:to-cyan-600 hover:shadow-lg transition-all duration-300 cursor-pointer">
-              Adopt Now
+          <Link href="/all-pets">
+            <button className="mt-7 px-7 py-3 flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg font-medium shadow-md hover:from-blue-600 hover:to-cyan-600 hover:shadow-lg transition-all duration-300 cursor-pointer">
+              Explore More
+              <ArrowRight size={18} />
             </button>
           </Link>
         </div>

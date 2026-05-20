@@ -27,13 +27,13 @@ const AllPetsPage = async ({ searchParams }) => {
             friend today.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-3 lg:gap-10 mx-6 md:mx-4 lg:mx-0 my-6">
           <SearchFilter></SearchFilter>
           <FilterFunctionality></FilterFunctionality>
           <SortPriceFunctionality></SortPriceFunctionality>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-3 lg:gap-10">
           {pets.map((pet) => (
             <PetsCard key={pet._id} pet={pet}></PetsCard>
           ))}

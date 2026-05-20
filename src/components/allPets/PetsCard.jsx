@@ -65,16 +65,18 @@ const PetsCard = ({ pet }) => {
         <hr className="my-2 border-gray-200" />
 
         {/* Buttons */}
-        <div className="flex gap-3">
-          <Link href={`/all-pets/${pet._id}`} className="w-full">
+        <div className="flex gap-2">
+          <Link href={`/all-pets/${pet._id}`} className="flex-1">
             <button className="w-full py-2 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer">
               View Details
             </button>
           </Link>
 
-          <button className="w-full py-2 rounded-xl bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 text-white font-semibold shadow-md hover:from-green-600 hover:via-emerald-600 hover:to-teal-600 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer">
-            Adopt Now
-          </button>
+          <Link href="/" className="flex-1">
+            <button className="w-full py-2 rounded-xl bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 text-white font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+              Adopt Now
+            </button>
+          </Link>
         </div>
       </div>
     </div>

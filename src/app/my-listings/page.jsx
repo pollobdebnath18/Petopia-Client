@@ -23,7 +23,7 @@ const MyListingspage = async () => {
         </h1>
 
         <p className="text-gray-500 mt-2 text-sm sm:text-base">
-          Manage all your pets in one place — track, update, and control
+          Manages all your pets in one place — track, update, and control
           listings easily.
         </p>
       </div>

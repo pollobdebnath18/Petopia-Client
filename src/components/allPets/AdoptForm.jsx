@@ -11,7 +11,7 @@ const AdoptForm = ({ pet }) => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  // ⛔ WAIT UNTIL SESSION LOADS (IMPORTANT FOR HYDRATION)
+  //  WAIT UNTIL SESSION LOADS (IMPORTANT FOR HYDRATION)
   if (isPending) {
     return (
       <div className="w-full max-w-2xl mx-auto bg-white border shadow-xl rounded-2xl p-10 text-center">
@@ -22,7 +22,7 @@ const AdoptForm = ({ pet }) => {
 
   const user = session?.user;
 
-  // ✅ SAFE AFTER SESSION READY
+  //  SAFE AFTER SESSION READY
   const isOwner = user?.email === pet?.ownerEmail;
   const isAdopted = pet?.isAdopted === true;
   const isDisabled = loading || isOwner || isAdopted || !user;
@@ -56,6 +56,8 @@ const AdoptForm = ({ pet }) => {
     setLoading(true);
 
     try {
+      const { data: tokenData } = await authClient.token();
+
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/requests`,
         {
@@ -63,6 +65,8 @@ const AdoptForm = ({ pet }) => {
           headers: {
             "Content-Type": "application/json",
           },
+          authorization: `Bearer ${tokenData?.token}`,
+
           body: JSON.stringify({
             petId: pet._id,
             petName: pet.petName,
@@ -92,7 +96,7 @@ const AdoptForm = ({ pet }) => {
     }
   };
 
-  // ✅ SUCCESS SCREEN
+  //  SUCCESS SCREEN
   if (success) {
     return (
       <div className="w-full max-w-2xl mx-auto bg-white border shadow-xl rounded-2xl p-10 text-center">
@@ -107,7 +111,7 @@ const AdoptForm = ({ pet }) => {
     );
   }
 
-  // ⭐ ADOPTED UI
+  // ADOPTED UI
   if (isAdopted) {
     return (
       <div className="w-full max-w-2xl mx-auto bg-green-50 border border-green-200 shadow-lg rounded-2xl p-10 text-center">

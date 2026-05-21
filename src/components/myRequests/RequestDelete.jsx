@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { AlertDialog, Button } from "@heroui/react";
 import { Trash2 } from "lucide-react";
 import { toast } from "react-toastify";
@@ -7,10 +8,12 @@ import { toast } from "react-toastify";
 export function RequestDelete({ requests, req, user }) {
   const handleDelete = async (id) => {
     try {
+      const { data: tokenData } = await authClient.token();
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/requests/${id}?email=${user.email}`,
         {
           method: "DELETE",
+          authorization: `Bearer ${tokenData?.token}`,
         },
       );
 

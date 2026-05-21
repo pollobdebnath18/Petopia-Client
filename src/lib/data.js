@@ -1,3 +1,6 @@
+import { headers } from "next/headers";
+import { auth } from "./auth";
+
 export const fetchAllPets = async (search = "", species = "", sort = "") => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/pets?search=${search}&species=${species}&sort=${sort}`,
@@ -9,10 +12,16 @@ export const fetchAllPets = async (search = "", species = "", sort = "") => {
 
 //my-listings
 export const fetchMyPets = async (email) => {
+  const { token } = await auth.api.getToken({
+    headers: await headers(),
+  });
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/pets?email=${email}`,
     {
       cache: "no-store",
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
     },
   );
   const data = await res.json();
@@ -22,17 +31,23 @@ export const fetchMyPets = async (email) => {
 //my-requets for sepecific user
 
 export const fetchMyRequests = async (email) => {
+  const { token } = await auth.api.getToken({
+    headers: await headers(),
+  });
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/requests?email=${email}`,
     {
       cache: "no-store",
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
     },
   );
 
   return res.json();
 };
 
-//my-request for multiple user 
+//my-request for multiple user
 const fetchPetRequests = async (petId) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/requests/pet/${petId}`,

@@ -16,19 +16,28 @@ const AddPetPage = () => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-    const petsData = Object.fromEntries(formData.entries());
-    // console.log(petsData);
+    const data = Object.fromEntries(formData.entries());
 
+    //  convert types properly
+    const petsData = {
+      ...data,
+      age: Number(data.age),
+      adoptionFee: Number(data.adoptionFee),
+    };
+    const { data: tokenData } = await authClient.token();
+    console.log(tokenData);
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/pets`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${tokenData?.token}`,
       },
       body: JSON.stringify(petsData),
     });
-    const data = await res.json();
-    // console.log(data)
-    if (data.insertedId) {
+
+    const result = await res.json();
+
+    if (result.insertedId) {
       toast.success("Pet Added Successfully in My Listings");
       setTimeout(() => {
         router.push("/my-listings");

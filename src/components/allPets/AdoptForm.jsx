@@ -6,19 +6,48 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 const AdoptForm = ({ pet }) => {
-  const { data: session } = authClient.useSession();
-  const user = session?.user;
+  const { data: session, isPending } = authClient.useSession();
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
+  // ⛔ WAIT UNTIL SESSION LOADS (IMPORTANT FOR HYDRATION)
+  if (isPending) {
+    return (
+      <div className="w-full max-w-2xl mx-auto bg-white border shadow-xl rounded-2xl p-10 text-center">
+        Loading session...
+      </div>
+    );
+  }
+
+  const user = session?.user;
+
+  // ✅ SAFE AFTER SESSION READY
+  const isOwner = user?.email === pet?.ownerEmail;
+  const isAdopted = pet?.isAdopted === true;
+  const isDisabled = loading || isOwner || isAdopted || !user;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!user) {
+      toast.error("Please login first");
+      return;
+    }
+
+    if (isOwner) {
+      toast.error("You cannot adopt your own pet");
+      return;
+    }
+
+    if (isAdopted) {
+      toast.error("This pet is already adopted");
+      return;
+    }
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
-    // ✅ simple validation (important fix)
     if (!data.pickupDate || !data.message) {
       toast.error("Please fill all required fields");
       return;
@@ -27,7 +56,6 @@ const AdoptForm = ({ pet }) => {
     setLoading(true);
 
     try {
-      // TODO: API CALL HERE
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/requests`,
         {
@@ -51,13 +79,12 @@ const AdoptForm = ({ pet }) => {
       const result = await res.json();
 
       if (!res.ok) {
-        toast.error(result.message);
+        toast.error(result.message || "Request failed");
         return;
       }
 
       setSuccess(true);
       toast.success(`${pet.petName} adoption request sent 🐾`);
-      
     } catch (err) {
       toast.error("Something went wrong");
     } finally {
@@ -80,12 +107,40 @@ const AdoptForm = ({ pet }) => {
     );
   }
 
+  // ⭐ ADOPTED UI
+  if (isAdopted) {
+    return (
+      <div className="w-full max-w-2xl mx-auto bg-green-50 border border-green-200 shadow-lg rounded-2xl p-10 text-center">
+        <div className="text-5xl mb-3">🐾</div>
+
+        <h2 className="text-2xl font-bold text-green-600">
+          This Pet is Already Adopted
+        </h2>
+
+        <p className="text-gray-600 mt-2">
+          <b>{pet.petName}</b> has already found a loving home.
+        </p>
+
+        <p className="text-sm text-gray-500 mt-2">
+          No further adoption requests can be submitted.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <form
       onSubmit={handleSubmit}
       className="w-full max-w-2xl mx-auto bg-white border shadow-xl rounded-2xl p-6 md:p-8"
     >
       <h2 className="text-2xl font-bold text-center mb-6">Adopt This Pet 🐾</h2>
+
+      {/* OWNER WARNING */}
+      {isOwner && (
+        <div className="mb-5 bg-red-100 border border-red-300 text-red-600 px-4 py-3 rounded-xl text-sm text-center">
+          You are the owner of this pet. You cannot adopt your own pet.
+        </div>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* PET NAME */}
@@ -131,7 +186,8 @@ const AdoptForm = ({ pet }) => {
             name="pickupDate"
             type="date"
             required
-            className="w-full border rounded-lg p-2"
+            disabled={isDisabled}
+            className="w-full border rounded-lg p-2 disabled:bg-gray-100"
           />
         </div>
 
@@ -142,7 +198,8 @@ const AdoptForm = ({ pet }) => {
             name="message"
             required
             rows="2"
-            className="w-full border rounded-lg p-2"
+            disabled={isDisabled}
+            className="w-full border rounded-lg p-2 disabled:bg-gray-100"
           />
         </div>
       </div>
@@ -150,10 +207,20 @@ const AdoptForm = ({ pet }) => {
       {/* BUTTON */}
       <button
         type="submit"
-        disabled={loading}
-        className="w-full mt-6 py-3 rounded-lg bg-blue-600 text-white font-semibold cursor-pointer"
+        disabled={isDisabled}
+        className={`w-full mt-6 py-3 rounded-lg text-white font-semibold ${
+          isOwner || isAdopted
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-blue-600 hover:bg-blue-700"
+        }`}
       >
-        {loading ? "Submitting..." : `Adopt ${pet.petName} 🐾`}
+        {loading
+          ? "Submitting..."
+          : isAdopted
+            ? "Already Adopted"
+            : isOwner
+              ? "Owner Cannot Adopt"
+              : `Adopt ${pet?.petName} 🐾`}
       </button>
     </form>
   );

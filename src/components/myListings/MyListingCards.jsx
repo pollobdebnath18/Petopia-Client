@@ -6,7 +6,7 @@ import { DeleteCard } from "./DeleteCard";
 import EditModal from "./EditModal";
 import RequestModal from "./RequestModal";
 
-const MyListingCard = ({ pet, onRequests, onDelete }) => {
+const MyListingCard = ({ pet, onRequests, onDelete,requests }) => {
   const router = useRouter();
 
   const { _id, petName, imageUrl, adoptionFee, species, gender } = pet;
@@ -65,7 +65,7 @@ const MyListingCard = ({ pet, onRequests, onDelete }) => {
         </div>
 
         <div className="flex gap-2 mt-2">
-          <RequestModal pet={pet}></RequestModal>
+          <RequestModal pet={pet} requests={requests}></RequestModal>
 
           {/* DELETE BUTTON */}
 

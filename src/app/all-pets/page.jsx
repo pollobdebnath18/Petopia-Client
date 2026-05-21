@@ -33,7 +33,7 @@ const AllPetsPage = async ({ searchParams }) => {
           <SortPriceFunctionality></SortPriceFunctionality>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-3 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-3 lg:gap-10">
           {pets.map((pet) => (
             <PetsCard key={pet._id} pet={pet}></PetsCard>
           ))}

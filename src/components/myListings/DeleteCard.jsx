@@ -45,7 +45,7 @@ export function DeleteCard({ petId, ownerEmail, onSuccess }) {
   return (
     <AlertDialog>
       <Button
-        className="flex-1 px-3 py-2 rounded-lg text-white font-medium
+        className=" w-1/2 flex-1 px-3 py-2 rounded-lg text-white font-medium
       bg-gradient-to-r from-red-500 via-red-600 to-pink-500
       hover:from-red-600 hover:via-pink-500 hover:to-red-700
       shadow-md hover:shadow-xl

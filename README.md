@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🐾 Petopia – Pet Adoption Platform
 
-## Getting Started
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js"/>
+  <img src="https://img.shields.io/badge/TailwindCSS-3-blue?style=for-the-badge&logo=tailwindcss"/>
+  <img src="https://img.shields.io/badge/Node.js-Express-green?style=for-the-badge&logo=node.js"/>
+  <img src="https://img.shields.io/badge/MongoDB-Database-brightgreen?style=for-the-badge&logo=mongodb"/>
+</p>
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌟 Project Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Petopia** is a modern and responsive **Pet Adoption Platform** designed to connect pet lovers with pets looking for a new home.  
+Users can browse pets, post pets for adoption, and manage adoption requests in a smooth and intuitive interface.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+> 💡 Built with a focus on clean UI, scalability, and real-world full-stack architecture.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🌐 Live Demo
 
-To learn more about Next.js, take a look at the following resources:
+🔗 **https://petopia-client.vercel.app**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Key Features
 
-## Deploy on Vercel
+✨ **Authentication System**
+- Secure login & registration
+- User session handling
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+🐶 **Pet Management**
+- Add new pets for adoption
+- View detailed pet information
+- Update & manage listings
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📩 **Adoption Requests System**
+- Send adoption requests
+- View all requests per pet
+- Approve / Reject requests (owner control)
+
+📊 **Dashboard Features**
+- My Listings page with statistics
+- My Requests tracking system
+- Status management (Pending / Approved / Rejected)
+
+📱 **Responsive Design**
+- Fully responsive for mobile, tablet, and desktop
+- Modern UI with Tailwind CSS
+
+⚡ **Performance Optimized**
+- Fast rendering with Next.js App Router
+- Efficient API integration
+
+---
+
+## 🧰 Tech Stack & Packages
+
+### ⚛️ Frontend
+- Next.js
+- React.js
+- Tailwind CSS
+- HeroUI
+- Lucide React
+- React Icons
+- React Toastify
+
+### 🔐 Authentication
+- Better Auth (`auth-client`)
+
+### 🌐 Backend
+- Node.js
+- Express.js
+- MongoDB
+- REST API Architecture
+
+---
+
+## 🏗️ Project Architecture
+
+- **Frontend:** Next.js (App Router)
+- **Backend:** Express.js REST API
+- **Database:** MongoDB
+- **Deployment:** Vercel (Client)
+
+---
+
+## 📌 Core Modules
+
+- 🏠 Home & Pet Listings
+- ➕ Add Pet Form
+- ❤️ Adoption Request System
+- 📋 My Listings Dashboard
+- 📬 My Requests Dashboard
+- 🔐 Authentication System
+
+---
+
+## 🔮 Future Improvements
+
+- 💬 Real-time chat between users
+- 🖼️ Cloud image upload (Cloudinary / S3)
+- 🔎 Advanced filtering & search system
+- 🛡️ Admin panel for platform control
+
+---
+
+## 👨‍💻 Developer
+
+Built with ❤️ using modern web technologies to make pet adoption easier and more accessible.
+
+---
+
+## ⭐ Show Support
+
+If you like this project:
+- ⭐ Star the repository
+- 🍴 Fork it
+- 🐾 Share with others
+
+---
+
+> “Every pet deserves a loving home 🐶🐱”

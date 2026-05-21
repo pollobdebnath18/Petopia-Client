@@ -64,9 +64,8 @@ const AdoptForm = ({ pet }) => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${tokenData?.token}`, // ✅ FIXED HERE
           },
-          authorization: `Bearer ${tokenData?.token}`,
-
           body: JSON.stringify({
             petId: pet._id,
             petName: pet.petName,

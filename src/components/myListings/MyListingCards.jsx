@@ -6,7 +6,7 @@ import { DeleteCard } from "./DeleteCard";
 import EditModal from "./EditModal";
 import RequestModal from "./RequestModal";
 
-const MyListingCard = ({ pet, onRequests, onDelete,requests }) => {
+const MyListingCard = ({ pet, onRequests, onDelete, requests }) => {
   const router = useRouter();
 
   const { _id, petName, imageUrl, adoptionFee, species, gender } = pet;
@@ -37,7 +37,9 @@ const MyListingCard = ({ pet, onRequests, onDelete,requests }) => {
             {gender}
           </span>
         </div>
-        <span className="text-blue-600 font-medium">0 Requests</span>
+        <span className="text-blue-600 font-medium">
+          {requests?.length || 0} Requests
+        </span>
       </div>
 
       <div className="flex flex-col gap-2 mt-2">

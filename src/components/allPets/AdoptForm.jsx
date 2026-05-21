@@ -42,6 +42,7 @@ const AdoptForm = ({ pet }) => {
             email: user.email,
             pickupDate: data.pickupDate,
             message: data.message,
+            image: pet.imageUrl,
             status: "pending",
           }),
         },

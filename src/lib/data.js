@@ -18,3 +18,16 @@ export const fetchMyPets = async (email) => {
   const data = await res.json();
   return data || [];
 };
+
+//my-requets
+
+export const fetchMyRequests = async (email) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/requests?email=${email}`,
+    {
+      cache: "no-store",
+    },
+  );
+
+  return res.json();
+};

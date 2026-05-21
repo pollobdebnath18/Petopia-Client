@@ -72,7 +72,7 @@ const PetsCard = ({ pet }) => {
             </button>
           </Link>
 
-          <Link href="/" className="flex-1">
+          <Link href={`/all-pets/${pet._id}`} className="flex-1">
             <button className="w-full py-2 rounded-xl bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 text-white font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer">
               Adopt Now
             </button>

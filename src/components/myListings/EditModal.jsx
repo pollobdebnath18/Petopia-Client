@@ -27,12 +27,14 @@ const EditModal = ({ pet }) => {
     const petsData = Object.fromEntries(formData.entries());
 
     try {
+      const { data: tokenData } = await authClient.token();
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/pets/${pet?._id}?email=${email}`,
         {
           method: "PATCH",
           headers: {
             "content-type": "application/json",
+            authorization: `Bearer ${tokenData?.token}`,
           },
           body: JSON.stringify(petsData),
         },
@@ -78,7 +80,7 @@ const EditModal = ({ pet }) => {
       {/* MODAL */}
       {open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-          <div className="w-full max-w-2xl bg-white rounded-2xl p-4 relative shadow-xl">
+          <div className="w-full max-w-2xl bg-white rounded-2xl p-4 relative shadow-xl dark:bg-gray-700 dark:text-white/90">
             {/* CLOSE BUTTON */}
             <button
               onClick={() => setOpen(false)}

@@ -24,7 +24,7 @@ const AddForm = () => {
       adoptionFee: Number(data.adoptionFee),
     };
     const { data: tokenData } = await authClient.token();
-    console.log(tokenData);
+    // console.log(tokenData);
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/pets`, {
       method: "POST",
       headers: {

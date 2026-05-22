@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 
@@ -16,12 +16,17 @@ import {
   FaHeart,
   FaList,
   FaSignOutAlt,
+  FaUserCircle,
+  FaPlusCircle,
+  FaListUl,
 } from "react-icons/fa";
 
 import { Moon, Sun } from "lucide-react";
+import { router } from "better-auth/api";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
   const { theme, setTheme } = useTheme();
 
@@ -33,6 +38,7 @@ const Navbar = () => {
 
   const handleSignOut = async () => {
     await authClient.signOut();
+    router.push("/");
     setDropdownOpen(false);
     setOpen(false);
   };
@@ -127,7 +133,7 @@ const Navbar = () => {
               {/* DROPDOWN (same style you had) */}
               <div
                 className={`
-                  absolute right-0 top-14 w-56 bg-white rounded-2xl shadow-xl
+                  absolute -right-13 top-14 w-52 bg-white rounded-2xl shadow-xl
                   border border-gray-100 dark:border-blue-500 overflow-hidden z-50
                   transition-all duration-300 dark:bg-black dark:text-white/90 
                   ${
@@ -139,33 +145,81 @@ const Navbar = () => {
               >
                 <div className="space-y-2 p-2">
                   <Link
-                    href="/my-requests"
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-500"
+                    href="/profiles"
+                    className="
+    flex items-center gap-3 px-4 py-3 rounded-xl
+    bg-white dark:bg-gray-800
+    text-gray-700 dark:text-gray-200
+    hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500
+    hover:text-white
+    shadow-sm hover:shadow-lg
+    transition-all duration-300
+    group
+  "
                   >
-                    <FaHeart />
-                    My Requests
+                    <FaUserCircle className="text-blue-500 group-hover:text-white text-lg" />
+
+                    <span className="font-medium">My Profile</span>
+                  </Link>
+                  <Link
+                    href="/my-requests"
+                    className="
+    flex items-center gap-3 px-4 py-3 rounded-xl
+    bg-white dark:bg-gray-800
+    text-gray-700 dark:text-gray-200
+    hover:bg-gradient-to-r hover:from-pink-500 hover:to-rose-500
+    hover:text-white
+    shadow-sm hover:shadow-lg
+    transition-all duration-300
+    group
+  "
+                  >
+                    <FaHeart className="text-pink-500 group-hover:text-white text-lg" />
+
+                    <span className="font-medium">My Requests</span>
                   </Link>
 
                   <Link
                     href="/add-pet"
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-500"
+                    className="
+    flex items-center gap-3 px-4 py-3 rounded-xl
+    bg-white dark:bg-gray-800
+    text-gray-700 dark:text-gray-200
+    hover:bg-gradient-to-r hover:from-emerald-500 hover:to-cyan-500
+    hover:text-white
+    shadow-sm hover:shadow-lg
+    transition-all duration-300
+    group
+  "
                   >
-                    <FaPlus />
-                    Add Pet
+                    <FaPlusCircle className="text-emerald-500 group-hover:text-white text-lg" />
+
+                    <span className="font-medium">Add Pet</span>
                   </Link>
 
                   <Link
                     href="/my-listings"
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-500"
+                    className="
+    flex items-center gap-3 px-4 py-3 rounded-xl
+    bg-white dark:bg-gray-800
+    text-gray-700 dark:text-gray-200
+    hover:bg-gradient-to-r hover:from-indigo-500 hover:to-blue-500
+    hover:text-white
+    shadow-sm hover:shadow-lg
+    transition-all duration-300
+    group
+  "
                   >
-                    <FaList />
-                    My Listings
+                    <FaListUl className="text-indigo-500 group-hover:text-white text-lg" />
+
+                    <span className="font-medium">My Listings</span>
                   </Link>
                 </div>
 
                 <button
                   onClick={handleSignOut}
-                  className="w-full flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-gray-100 dark:hover:bg-gray-500"
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl
+      text-red-600 hover:bg-red-500 hover:text-white transition"
                 >
                   <FaSignOutAlt />
                   Logout

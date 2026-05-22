@@ -188,7 +188,13 @@ const SignUpPage = () => {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium shadow-md"
+              className="w-full rounded-xl 
+  bg-gradient-to-r from-blue-500 via-cyan-500 to-sky-500
+  text-white font-semibold
+  shadow-md hover:shadow-cyan-500/30
+  transition-all duration-300
+  hover:scale-[1.02] active:scale-[0.98]
+  disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {loading ? "Creating..." : "Create Account"}
             </Button>

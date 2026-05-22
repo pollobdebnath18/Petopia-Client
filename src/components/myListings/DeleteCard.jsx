@@ -20,10 +20,17 @@ export function DeleteCard({ petId, ownerEmail, onSuccess }) {
 
       setLoading(true);
 
+      const { data: tokenData } = await authClient.token();
+      console.log(tokenData);
+
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/pets/${petId}?email=${loggedInEmail}`,
         {
           method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${tokenData?.token}`,
+          },
         },
       );
 

@@ -80,9 +80,9 @@ const RequestModal = ({ pet }) => {
 
       {/* MODAL BACKDROP (IMPORTANT Z-INDEX FIX) */}
       {open && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 dark:bg-black">
           {/* MODAL BOX */}
-          <div className="w-full max-w-lg bg-white rounded-2xl shadow-xl p-6">
+          <div className="w-full max-w-lg bg-white rounded-2xl shadow-xl p-6 dark:bg-gray-600">
             {/* HEADER */}
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg font-bold">Requests for {pet.petName}</h2>
@@ -111,7 +111,7 @@ const RequestModal = ({ pet }) => {
                   >
                     {/* NAME + STATUS */}
                     <div className="flex justify-between items-center">
-                      <h3 className="font-semibold">{req.userName}</h3>
+                      <h3 className="font-semibold dark:text-gray-700">{req.userName}</h3>
 
                       <span
                         className={`px-3 py-1 rounded-full text-sm
@@ -128,7 +128,7 @@ const RequestModal = ({ pet }) => {
                     </div>
 
                     {/* EMAIL */}
-                    <p className="text-sm text-gray-500">{req.email}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-600">{req.email}</p>
 
                     {/* PICKUP DATE */}
                     <p className="text-sm mt-1">
@@ -138,7 +138,7 @@ const RequestModal = ({ pet }) => {
 
                     {/* BUTTONS (ONLY PENDING) */}
                     {req.status === "pending" && (
-                      <div className="grid grid-cols-2 gap-3 mt-4">
+                      <div className="grid grid-cols-2 gap-3 mt-4 dark:bg-gray-400">
                         <button
                           onClick={() => handleAction(req._id, "approved")}
                           className="w-full py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"

@@ -41,19 +41,19 @@ const MyRequests = async () => {
 
       {/* EMPTY STATE */}
       {total === 0 ? (
-        <div className="mt-12 bg-white border border-dashed border-gray-200 rounded-3xl p-10 text-center shadow-sm">
+        <div className="mt-12 bg-white border border-dashed border-gray-200 rounded-3xl p-10 text-center shadow-sm dark:bg-black dark:border-white/40">
           <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-r from-blue-100 to-cyan-100 flex items-center justify-center mb-5">
             <PawPrint className="w-10 h-10 text-blue-600" />
           </div>
 
-          <h2 className="text-2xl font-bold text-gray-800">No Requests Yet</h2>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white/70">No Requests Yet</h2>
 
           <p className="text-gray-500 mt-3 max-w-md mx-auto dark:text-white/50">
             You haven’t submitted any adoption requests yet.
           </p>
 
           <Link href={"/all-pets"}>
-            <button className="mt-6 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 text-white font-semibold shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+            <button className="mt-6 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 text-white font-semibold shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
               Explore Pets 🐾
             </button>
           </Link>

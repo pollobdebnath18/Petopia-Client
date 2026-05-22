@@ -104,9 +104,14 @@ const SignInPage = () => {
           {/* LOGIN BUTTON */}
           <Button
             type="submit"
-            className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:from-green-600 hover:to-emerald-700 transition-all duration-300"
+            className="w-full relative overflow-hidden rounded-xl 
+  bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500
+  text-white font-semibold
+  shadow-lg hover:shadow-emerald-500/30
+  transition-all duration-300
+  hover:scale-[1.02] active:scale-[0.98]"
           >
-            <Check />
+            <Check className="mr-2 h-4 w-4" />
             Login
           </Button>
         </form>

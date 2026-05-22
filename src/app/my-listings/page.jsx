@@ -4,6 +4,12 @@ import { fetchMyPets, fetchMyRequests } from "@/lib/data";
 import { headers } from "next/headers";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Petopia | My Listings",
+  description:
+    "Petopia is a modern pet adoption platform where users can discover, adopt, and give loving homes to pets including dogs, cats, birds, and more. Find your perfect companion today.",
+};
+
 const MyListingspage = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),
@@ -61,7 +67,7 @@ const MyListingspage = async () => {
       ) : (
         <div>
           {/* STATS */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10 mx-16 md:mx-12 lg:mx-0">
             <div className="bg-white shadow-md rounded-2xl p-5 sm:p-6 border text-center">
               <h2 className="text-gray-500 font-medium">Total Listings</h2>
               <p className="text-2xl sm:text-3xl font-bold text-blue-600 mt-2">
@@ -85,10 +91,16 @@ const MyListingspage = async () => {
           </div>
 
           {/* CARDS GRID */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {myPets.map((pet) => (
-              <MyListingCard key={pet._id} pet={pet} requests={requests} />
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mx-20 md:mx-6 lg:mx-0">
+            {myPets.map((pet) => {
+              const petRequests = requests.filter(
+                (r) => r.petId?.toString() === pet._id?.toString(),
+              );
+
+              return (
+                <MyListingCard key={pet._id} pet={pet} requests={petRequests} />
+              );
+            })}
           </div>
         </div>
       )}

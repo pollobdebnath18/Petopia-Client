@@ -5,6 +5,12 @@ import SearchFilter from "@/components/allPets/SearchFunctionality";
 import SortPriceFunctionality from "@/components/allPets/SortPriceFunctionality";
 import { fetchAllPets } from "@/lib/data";
 
+export const metadata = {
+  title: "Petopia | All Pets",
+  description:
+    "Petopia is a modern pet adoption platform where users can discover, adopt, and give loving homes to pets including dogs, cats, birds, and more. Find your perfect companion today.",
+};
+
 const AllPetsPage = async ({ searchParams }) => {
   const sParams = (await searchParams) || {};
 

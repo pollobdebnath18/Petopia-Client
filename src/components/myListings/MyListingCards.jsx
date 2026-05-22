@@ -1,12 +1,32 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { DeleteCard } from "./DeleteCard";
 import EditModal from "./EditModal";
 import RequestModal from "./RequestModal";
 
-const MyListingCard = ({ pet, onRequests, onDelete, requests }) => {
+const MyListingCard = ({ pet, onDelete, requests }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const fetchCount = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/requests/count/${pet._id}`,
+        );
+
+        const data = await res.json();
+
+        setCount(data.count || 0); //  USE SERVER VALUE
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchCount();
+  }, [pet._id]);
+  // console.log(requests)
   const router = useRouter();
 
   const { _id, petName, imageUrl, adoptionFee, species, gender } = pet;
@@ -37,9 +57,7 @@ const MyListingCard = ({ pet, onRequests, onDelete, requests }) => {
             {gender}
           </span>
         </div>
-        <span className="text-blue-600 font-medium">
-          {requests?.length || 0} Requests
-        </span>
+        <span className="text-blue-600 font-medium">{count} Requests</span>
       </div>
 
       <div className="flex flex-col gap-2 mt-2">

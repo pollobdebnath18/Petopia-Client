@@ -36,6 +36,8 @@ const SignUpPage = () => {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
+        console.log(data);
+
 
     const { name, email, photo, password, confirmPassword } = data;
 
@@ -157,7 +159,7 @@ const SignUpPage = () => {
               </div>
 
               <p className="text-xs text-gray-400 mt-1">
-                • At least 6 characters <br />
+                • At least 8 characters <br />
                 • One uppercase letter <br />• One lowercase letter
               </p>
             </div>

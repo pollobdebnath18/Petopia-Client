@@ -7,6 +7,12 @@ import { headers } from "next/headers";
 import { fetchMyRequests } from "@/lib/data";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Petopia | My Requests",
+  description:
+    "Petopia is a modern pet adoption platform where users can discover, adopt, and give loving homes to pets including dogs, cats, birds, and more. Find your perfect companion today.",
+};
+
 const MyRequests = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),

@@ -49,8 +49,8 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-blue-50 px-4">
-      <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-blue-50 px-4 dark:from-slate-950 dark:via-zinc-900 dark:to-black">
+      <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8 dark:bg-black">
         {/* HEADER */}
         <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-cyan-400 text-transparent bg-clip-text text-center pb-6">
           Welcome Back 🐾

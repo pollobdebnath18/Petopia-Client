@@ -36,8 +36,7 @@ const SignUpPage = () => {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
-        console.log(data);
-
+    console.log(data);
 
     const { name, email, photo, password, confirmPassword } = data;
 
@@ -86,7 +85,7 @@ const SignUpPage = () => {
   const iconStyle = "text-gray-400 mr-2";
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-16 px-6 bg-gradient-to-br from-sky-50 via-white to-emerald-50">
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-16 px-6 bg-gradient-to-br from-sky-50 via-white to-emerald-50 dark:from-slate-950 dark:via-zinc-900 dark:to-black">
       {/* LEFT */}
       <div className="flex-1 flex justify-center items-center">
         <div className="w-full max-w-md pb-20">
@@ -95,8 +94,8 @@ const SignUpPage = () => {
       </div>
 
       {/* RIGHT */}
-      <div className="flex-1 flex justify-center">
-        <div className="w-full max-w-md bg-white shadow-xl rounded-3xl p-8">
+      <div className="flex-1 flex justify-center ">
+        <div className="w-full max-w-md bg-white shadow-xl rounded-3xl p-8 dark:bg-black">
           {/* HEADER */}
           <div className="text-center mb-6">
             <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-cyan-400 text-transparent bg-clip-text">

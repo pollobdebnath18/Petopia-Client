@@ -176,13 +176,13 @@ const Navbar = () => {
             <>
               {/* AUTH BUTTONS (visible on all sizes) */}
               <Link href="/signin">
-                <button className="px-4 py-2 rounded-full border border-blue-500 text-blue-600 text-sm">
+                <button className="px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 text-white font-medium shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
                   Sign In
                 </button>
               </Link>
 
               <Link href="/signup">
-                <button className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm">
+                <button className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 text-white font-medium shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
                   Get Started
                 </button>
               </Link>

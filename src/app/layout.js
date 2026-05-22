@@ -18,6 +18,9 @@ export const metadata = {
   title: "Petopia | Pet Adoption Platform",
   description:
     "Petopia is a modern pet adoption platform where users can discover, adopt, and give loving homes to pets including dogs, cats, birds, and more. Find your perfect companion today.",
+  icons: {
+    icon: "/logoo.png",
+  },
 };
 export default function RootLayout({ children }) {
   return (

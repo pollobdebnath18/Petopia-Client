@@ -3,9 +3,11 @@
 import { authClient } from "@/lib/auth-client";
 import { AlertDialog, Button } from "@heroui/react";
 import { Trash2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 export function RequestDelete({ requests, req, user }) {
+  const router = useRouter();
   const handleDelete = async (id) => {
     try {
       const { data: tokenData } = await authClient.token();
@@ -13,11 +15,14 @@ export function RequestDelete({ requests, req, user }) {
         `${process.env.NEXT_PUBLIC_SERVER_URL}/requests/${id}?email=${user.email}`,
         {
           method: "DELETE",
-          authorization: `Bearer ${tokenData?.token}`,
+          headers: {
+            authorization: `Bearer ${tokenData?.token}`,
+          },
         },
       );
 
       const data = await res.json();
+      // console.log(data);
 
       if (!res.ok) {
         toast.error(data.message || "Delete failed");
@@ -25,6 +30,7 @@ export function RequestDelete({ requests, req, user }) {
       }
 
       toast.success(`${req.petName} Deleted Successfully`);
+      router.refresh();
     } catch (err) {
       toast.error("Delete failed");
     }

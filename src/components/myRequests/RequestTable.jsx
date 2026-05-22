@@ -3,7 +3,6 @@
 import React from "react";
 import Link from "next/link";
 import { Eye, Trash2, Clock3, CheckCircle2, XCircle } from "lucide-react";
-import { toast } from "react-toastify";
 import { authClient } from "@/lib/auth-client";
 import { RequestDelete } from "./RequestDelete";
 
@@ -11,51 +10,66 @@ const RequestTable = ({ requests }) => {
   const { data: session } = authClient.useSession();
   const user = session?.user;
 
- 
-
   return (
     <div className="overflow-x-auto mt-6">
-      <table className="w-full border bg-white rounded-xl overflow-hidden shadow-md">
+      <table className="w-full border rounded-xl overflow-hidden shadow-md bg-white dark:bg-zinc-950 dark:border-white/10">
         {/* HEADER */}
-        <thead className="bg-gray-100">
+        <thead className="bg-gray-100 dark:bg-zinc-900 dark:border-white/10">
           <tr>
-            <th className="p-3 text-left">Pet Name</th>
-            <th className="p-3 text-left">Request Date</th>
-            <th className="p-3 text-left">Pickup Date</th>
-            <th className="p-3 text-left">Status</th>
-            <th className="p-3 text-center">Actions</th>
+            <th className="p-3 text-left text-gray-700 dark:text-gray-200">
+              Pet Name
+            </th>
+            <th className="p-3 text-left text-gray-700 dark:text-gray-200">
+              Request Date
+            </th>
+            <th className="p-3 text-left text-gray-700 dark:text-gray-200">
+              Pickup Date
+            </th>
+            <th className="p-3 text-left text-gray-700 dark:text-gray-200">
+              Status
+            </th>
+            <th className="p-3 text-center text-gray-700 dark:text-gray-200">
+              Actions
+            </th>
           </tr>
         </thead>
 
         {/* BODY */}
         <tbody>
           {requests?.map((req) => (
-            <tr key={req._id} className="border-t hover:bg-gray-50">
+            <tr
+              key={req._id}
+              className="border-t hover:bg-gray-50 dark:hover:bg-zinc-900 dark:border-white/10"
+            >
               {/* PET INFO */}
               <td className="p-3">
                 <div className="flex items-center gap-3">
                   <img
                     src={req.image || "https://via.placeholder.com/50"}
                     alt={req.petName}
-                    className="w-12 h-12 rounded-lg object-cover border"
+                    className="w-12 h-12 rounded-lg object-cover border dark:border-white/10"
                   />
 
                   <div>
-                    <h3 className="font-semibold text-gray-800">
+                    <h3 className="font-semibold text-gray-800 dark:text-gray-100">
                       {req.petName}
                     </h3>
-                    <p className="text-xs text-gray-500">Pet Request</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      Pet Request
+                    </p>
                   </div>
                 </div>
               </td>
 
               {/* REQUEST DATE */}
-              <td className="p-3 text-gray-600">
+              <td className="p-3 text-gray-600 dark:text-gray-300">
                 {new Date(req.createdAt).toLocaleDateString()}
               </td>
 
               {/* PICKUP DATE */}
-              <td className="p-3 text-gray-600">{req.pickupDate}</td>
+              <td className="p-3 text-gray-600 dark:text-gray-300">
+                {req.pickupDate}
+              </td>
 
               {/* STATUS */}
               <td className="p-3">
@@ -63,21 +77,21 @@ const RequestTable = ({ requests }) => {
                   {req.status === "pending" && (
                     <>
                       <Clock3 size={16} className="text-yellow-500" />
-                      <span className="text-yellow-600">Pending</span>
+                      <span className="text-yellow-500">Pending</span>
                     </>
                   )}
 
                   {req.status === "approved" && (
                     <>
                       <CheckCircle2 size={16} className="text-green-500" />
-                      <span className="text-green-600">Approved</span>
+                      <span className="text-green-500">Approved</span>
                     </>
                   )}
 
                   {req.status === "rejected" && (
                     <>
                       <XCircle size={16} className="text-red-500" />
-                      <span className="text-red-600">Rejected</span>
+                      <span className="text-red-500">Rejected</span>
                     </>
                   )}
                 </span>
@@ -87,12 +101,12 @@ const RequestTable = ({ requests }) => {
               <td className="p-3">
                 <div className="flex justify-center gap-2">
                   <Link href={`/all-pets/${req.petId}`}>
-                    <button className="p-2 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition cursor-pointer">
+                    <button className="p-2 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition dark:bg-blue-900/30 dark:text-blue-300 dark:hover:bg-blue-600 dark:hover:text-white">
                       <Eye size={18} />
                     </button>
                   </Link>
 
-                  <RequestDelete req={req} requests={requests} user ={user}></RequestDelete>
+                  <RequestDelete req={req} requests={requests} user={user} />
                 </div>
               </td>
             </tr>

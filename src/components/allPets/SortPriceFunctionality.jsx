@@ -29,7 +29,7 @@ const SortPriceFunctionality = () => {
       <select
         value={currentSort}
         onChange={handleSort}
-        className="w-[256px] border px-3 py-2 rounded"
+        className="w-[256px] border px-3 py-2 rounded dark:bg-gray-700"
       >
         <option value="">Default</option>
         <option value="low-high">Price Low to high</option>

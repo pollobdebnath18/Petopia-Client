@@ -29,13 +29,13 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="w-full py-20 bg-gray-50">
+    <section className="w-full py-20 bg-gray-50 dark:bg-black">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center">
-          <h2 className="text-4xl font-bold text-gray-800">
+        <div className="text-center ">
+          <h2 className="text-4xl font-bold text-gray-800 dark:text-white/70">
             Frequently Asked Questions
           </h2>
-          <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-3 text-gray-600 max-w-2xl mx-auto dark:text-white/50">
             Find clear answers about adoption process, safety, and how Petopia
             works.
           </p>
@@ -45,17 +45,17 @@ const FAQ = () => {
           {faqs.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"
+              className="bg-white rounded-xl shadow-sm border dark:border-white/30 border-gray-100 overflow-hidden dark:bg-gray-700"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition cursor-pointer"
+                className="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 dark:hover:bg-gray-400 transition cursor-pointer"
               >
                 <span className="font-semibold text-gray-800">
                   <span className="text-green-600 mr-2 font-bold ">
                     {index + 1}.
                   </span>
-                  <span className="text-xl"> {item.q}</span>
+                  <span className="text-xl dark:text-white/60"> {item.q}</span>
                 </span>
 
                 <span className="text-2xl font-bold text-gray-500">
@@ -64,7 +64,7 @@ const FAQ = () => {
               </button>
 
               {openIndex === index && (
-                <div className="px-5 pb-5 text-gray-600 text-lg leading-relaxed">
+                <div className="px-5 pb-5 text-gray-600 text-lg leading-relaxed dark:bg-gray-300">
                   {item.a}
                 </div>
               )}

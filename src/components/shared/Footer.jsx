@@ -4,8 +4,8 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white mt-10">
-      <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-3 gap-12">
+    <footer className="bg-black text-white pt-10 dark:border-t dark:border-t-white/30">
+      <div className="max-w-7xl mx-auto lg:ml-10 sm:ml-8 px-6 py-14 grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* LEFT - Logo + Description */}
         <div>
           <div className="flex items-center gap-3 mb-4">
@@ -36,8 +36,8 @@ const Footer = () => {
           <h2 className="text-lg font-bold mb-4">Contact Us</h2>
 
           <div className="text-gray-400 text-sm space-y-3">
-            <p>📧 support@petopia.com</p>
-            <p>📞 +880 17XXXXXXXX</p>
+            <p>📧 pullobdebnath@gmail.com</p>
+            <p>📞 +880 1780-589179</p>
             <p>📍 Sylhet, Bangladesh</p>
           </div>
         </div>

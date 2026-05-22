@@ -33,7 +33,7 @@ const FilterFunctionality = () => {
       <select
         value={currentSpecies} 
         onChange={handleFilter}
-        className="w-[256px] border px-3 py-2 rounded"
+        className="w-[256px] border px-3 py-2 rounded dark:bg-gray-700"
       >
         <option value="">All Species</option>
         <option value="Bird">Bird</option>

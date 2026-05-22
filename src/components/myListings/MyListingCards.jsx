@@ -32,7 +32,7 @@ const MyListingCard = ({ pet, onDelete, requests }) => {
   const { _id, petName, imageUrl, adoptionFee, species, gender } = pet;
 
   return (
-    <div className="border rounded-2xl shadow-md p-4 flex flex-col gap-3 bg-white hover:shadow-lg transition">
+    <div className="border rounded-2xl shadow-md p-4 flex flex-col gap-3 bg-white hover:shadow-lg transition dark:bg-gray-700">
       <img
         src={imageUrl}
         alt={petName}
@@ -57,7 +57,7 @@ const MyListingCard = ({ pet, onDelete, requests }) => {
             {gender}
           </span>
         </div>
-        <span className="text-blue-600 font-medium">{count} Requests</span>
+        <span className="text-blue-600 font-medium dark:text-white/60">{count} Requests</span>
       </div>
 
       <div className="flex flex-col gap-2 mt-2">

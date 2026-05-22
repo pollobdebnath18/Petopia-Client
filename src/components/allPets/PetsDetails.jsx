@@ -26,9 +26,9 @@ const PetsDetails = ({ pet }) => {
   } = pet;
 
   return (
-    <div className=" ">
+    <div className="">
       {/* LEFT SIDE - 50% */}
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+      <div className="bg-white dark:bg-gray-900 dark:border dark:border-gray-700 rounded-2xl shadow-lg overflow-hidden text-gray-800 dark:text-gray-200">
         {/* IMAGE */}
         <div className="relative">
           <img
@@ -37,17 +37,18 @@ const PetsDetails = ({ pet }) => {
             className="w-full h-72 object-cover"
           />
 
-          <span className="absolute top-4 left-4 bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full font-medium">
+          <span className="absolute top-4 left-4 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-xs px-3 py-1 rounded-full font-medium">
             {species}
           </span>
         </div>
 
-       
-        <div className="p-6 space-y-2"> 
+        <div className="p-6 space-y-2">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-800">{petName}</h1>
-              <p className="text-sm text-gray-500 mt-1 flex items-center gap-2 flex-wrap">
+              <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
+                {petName}
+              </h1>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 flex items-center gap-2 flex-wrap">
                 <span>{breed}</span>
                 <span>•</span>
                 <span>{species}</span>
@@ -57,7 +58,7 @@ const PetsDetails = ({ pet }) => {
             </div>
 
             <div className="text-right">
-              <p className="text-xs text-gray-500  tracking-wide">
+              <p className="text-xs text-gray-500 dark:text-gray-400 tracking-wide">
                 Adoption Fee
               </p>
 
@@ -67,14 +68,11 @@ const PetsDetails = ({ pet }) => {
             </div>
           </div>
 
-          {/* BREED */}
-          <p className="text-gray-600 text-sm">{breed}</p>
+          <p className="text-gray-600 dark:text-gray-400 text-sm">{breed}</p>
 
           {/* 2 COLUMN DETAILS */}
-
           <div className="grid grid-cols-2 gap-2 text-sm">
-            {/* Species */}
-            <div className="flex items-start gap-2 bg-gray-50 p-3 rounded-lg">
+            <div className="flex items-start gap-2 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg">
               <FaPaw className="text-blue-500 mt-1" />
               <div>
                 <p className="text-gray-400">Species</p>
@@ -82,8 +80,7 @@ const PetsDetails = ({ pet }) => {
               </div>
             </div>
 
-            {/* Breed */}
-            <div className="flex items-start gap-2 bg-gray-50 p-3 rounded-lg">
+            <div className="flex items-start gap-2 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg">
               <FaDog className="text-green-500 mt-1" />
               <div>
                 <p className="text-gray-400">Breed</p>
@@ -91,8 +88,7 @@ const PetsDetails = ({ pet }) => {
               </div>
             </div>
 
-            {/* Age */}
-            <div className="flex items-start gap-2 bg-gray-50 p-3 rounded-lg">
+            <div className="flex items-start gap-2 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg">
               <FaBirthdayCake className="text-pink-500 mt-1" />
               <div>
                 <p className="text-gray-400">Age</p>
@@ -100,8 +96,7 @@ const PetsDetails = ({ pet }) => {
               </div>
             </div>
 
-            {/* Gender */}
-            <div className="flex items-start gap-2 bg-gray-50 p-3 rounded-lg">
+            <div className="flex items-start gap-2 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg">
               <FaVenusMars className="text-purple-500 mt-1" />
               <div>
                 <p className="text-gray-400">Gender</p>
@@ -109,8 +104,7 @@ const PetsDetails = ({ pet }) => {
               </div>
             </div>
 
-            {/* Location */}
-            <div className="flex items-start gap-2 bg-gray-50 p-3 rounded-lg">
+            <div className="flex items-start gap-2 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg">
               <FaMapMarkerAlt className="text-red-500 mt-1" />
               <div>
                 <p className="text-gray-400">Location</p>
@@ -118,8 +112,7 @@ const PetsDetails = ({ pet }) => {
               </div>
             </div>
 
-            {/* Price */}
-            <div className="flex items-start gap-2 bg-gray-50 p-3 rounded-lg">
+            <div className="flex items-start gap-2 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg">
               <FaDollarSign className="text-green-600 mt-1" />
               <div>
                 <p className="text-gray-400">Adoption Fee</p>
@@ -127,8 +120,7 @@ const PetsDetails = ({ pet }) => {
               </div>
             </div>
 
-            {/* Health Status */}
-            <div className="flex items-start gap-2 bg-gray-50 p-3 rounded-lg">
+            <div className="flex items-start gap-2 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg">
               <FaHeartbeat className="text-rose-500 mt-1" />
               <div>
                 <p className="text-gray-400">Health</p>
@@ -136,8 +128,7 @@ const PetsDetails = ({ pet }) => {
               </div>
             </div>
 
-            {/* Vaccination */}
-            <div className="flex items-start gap-2 bg-gray-50 p-3 rounded-lg">
+            <div className="flex items-start gap-2 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg">
               <FaSyringe className="text-indigo-500 mt-1" />
               <div>
                 <p className="text-gray-400">Vaccination</p>
@@ -148,14 +139,15 @@ const PetsDetails = ({ pet }) => {
 
           {/* ABOUT + DESCRIPTION */}
           <div className="space-y-2">
-            <h3 className="text-lg font-semibold">About Pet</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+              About Pet
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
               {description}
             </p>
           </div>
         </div>
       </div>
-     
     </div>
   );
 };

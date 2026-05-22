@@ -8,7 +8,7 @@ export const metadata = {
 
 const AddPetPage = () => {
   return (
-    <div>
+    <div >
       <AddForm></AddForm>
     </div>
   );

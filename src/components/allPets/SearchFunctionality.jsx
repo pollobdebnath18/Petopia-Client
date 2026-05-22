@@ -33,7 +33,7 @@ const SearchFilter = () => {
           onChange={(e) => setSearch(e.target.value)}
           type="text"
           placeholder="Search pets..."
-          className="h-12 px-4 border rounded-lg w-full"
+          className="h-12 px-4 border rounded-lg w-full dark:bg-gray-700"
         />
 
         <button

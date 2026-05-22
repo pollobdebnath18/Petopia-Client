@@ -11,10 +11,9 @@ const AdoptForm = ({ pet }) => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  //  WAIT UNTIL SESSION LOADS (IMPORTANT FOR HYDRATION)
   if (isPending) {
     return (
-      <div className="w-full max-w-2xl mx-auto bg-white border shadow-xl rounded-2xl p-10 text-center">
+      <div className="w-full max-w-2xl mx-auto bg-white dark:bg-gray-900 border dark:border-gray-700 shadow-xl rounded-2xl p-10 text-center text-gray-800 dark:text-gray-200">
         Loading session...
       </div>
     );
@@ -22,7 +21,6 @@ const AdoptForm = ({ pet }) => {
 
   const user = session?.user;
 
-  //  SAFE AFTER SESSION READY
   const isOwner = user?.email === pet?.ownerEmail;
   const isAdopted = pet?.isAdopted === true;
   const isDisabled = loading || isOwner || isAdopted || !user;
@@ -64,7 +62,7 @@ const AdoptForm = ({ pet }) => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${tokenData?.token}`, // ✅ FIXED HERE
+            Authorization: `Bearer ${tokenData?.token}`,
           },
           body: JSON.stringify({
             petId: pet._id,
@@ -95,36 +93,34 @@ const AdoptForm = ({ pet }) => {
     }
   };
 
-  //  SUCCESS SCREEN
   if (success) {
     return (
-      <div className="w-full max-w-2xl mx-auto bg-white border shadow-xl rounded-2xl p-10 text-center">
+      <div className="w-full max-w-2xl mx-auto bg-white dark:bg-gray-900 border dark:border-gray-700 shadow-xl rounded-2xl p-10 text-center text-gray-800 dark:text-gray-200">
         <div className="text-5xl mb-4">🎉</div>
         <h2 className="text-2xl font-bold text-green-600">
           Request Sent Successfully!
         </h2>
-        <p className="text-gray-500 mt-2">
+        <p className="text-gray-500 dark:text-gray-400 mt-2">
           You requested adoption for <b>{pet.petName}</b>
         </p>
       </div>
     );
   }
 
-  // ADOPTED UI
   if (isAdopted) {
     return (
-      <div className="w-full max-w-2xl mx-auto bg-green-50 border border-green-200 shadow-lg rounded-2xl p-10 text-center">
+      <div className="w-full max-w-2xl mx-auto bg-green-50 dark:bg-gray-900 border border-green-200 dark:border-gray-700 shadow-lg rounded-2xl p-10 text-center text-gray-800 dark:text-gray-200">
         <div className="text-5xl mb-3">🐾</div>
 
         <h2 className="text-2xl font-bold text-green-600">
           This Pet is Already Adopted
         </h2>
 
-        <p className="text-gray-600 mt-2">
+        <p className="text-gray-600 dark:text-gray-400 mt-2">
           <b>{pet.petName}</b> has already found a loving home.
         </p>
 
-        <p className="text-sm text-gray-500 mt-2">
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
           No further adoption requests can be submitted.
         </p>
       </div>
@@ -134,55 +130,50 @@ const AdoptForm = ({ pet }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-2xl mx-auto bg-white border shadow-xl rounded-2xl p-6 md:p-8"
+      className="w-full max-w-2xl mx-auto bg-white dark:bg-gray-900 border dark:border-gray-700 shadow-xl rounded-2xl p-6 md:p-8 text-gray-800 dark:text-gray-200"
     >
       <h2 className="text-2xl font-bold text-center mb-6">Adopt This Pet 🐾</h2>
 
-      {/* OWNER WARNING */}
       {isOwner && (
-        <div className="mb-5 bg-red-100 border border-red-300 text-red-600 px-4 py-3 rounded-xl text-sm text-center">
+        <div className="mb-5 bg-red-100 dark:bg-red-900 border border-red-300 dark:border-red-700 text-red-600 dark:text-red-300 px-4 py-3 rounded-xl text-sm text-center">
           You are the owner of this pet. You cannot adopt your own pet.
         </div>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* PET NAME */}
         <div>
           <label className="text-sm">Pet Name</label>
           <div className="relative">
-            <User className="absolute left-3 top-3 w-4 h-4 text-gray-500" />
+            <User className="absolute left-3 top-3 w-4 h-4 text-gray-500 dark:text-gray-400" />
             <input
               value={pet?.petName || ""}
               readOnly
-              className="w-full bg-gray-100 border rounded-lg pl-10 p-2"
+              className="w-full bg-gray-100 dark:bg-gray-800 border dark:border-gray-700 rounded-lg pl-10 p-2"
             />
           </div>
         </div>
 
-        {/* USER NAME */}
         <div>
           <label className="text-sm">Your Name</label>
           <input
             value={user?.name || ""}
             readOnly
-            className="w-full bg-gray-100 border rounded-lg p-2"
+            className="w-full bg-gray-100 dark:bg-gray-800 border dark:border-gray-700 rounded-lg p-2"
           />
         </div>
 
-        {/* EMAIL */}
         <div className="md:col-span-2">
           <label className="text-sm">Your Email</label>
           <div className="relative">
-            <Mail className="absolute left-3 top-3 w-4 h-4 text-gray-500" />
+            <Mail className="absolute left-3 top-3 w-4 h-4 text-gray-500 dark:text-gray-400" />
             <input
               value={user?.email || ""}
               readOnly
-              className="w-full bg-gray-100 border rounded-lg pl-10 p-2"
+              className="w-full bg-gray-100 dark:bg-gray-800 border dark:border-gray-700 rounded-lg pl-10 p-2"
             />
           </div>
         </div>
 
-        {/* DATE */}
         <div>
           <label>Pickup Date</label>
           <input
@@ -190,11 +181,10 @@ const AdoptForm = ({ pet }) => {
             type="date"
             required
             disabled={isDisabled}
-            className="w-full border rounded-lg p-2 disabled:bg-gray-100"
+            className="w-full border dark:border-gray-700 rounded-lg p-2 disabled:bg-gray-100 dark:disabled:bg-gray-800"
           />
         </div>
 
-        {/* MESSAGE */}
         <div className="md:col-span-2">
           <label>Message</label>
           <textarea
@@ -202,18 +192,17 @@ const AdoptForm = ({ pet }) => {
             required
             rows="2"
             disabled={isDisabled}
-            className="w-full border rounded-lg p-2 disabled:bg-gray-100"
+            className="w-full border dark:border-gray-700 rounded-lg p-2 disabled:bg-gray-100 dark:disabled:bg-gray-800"
           />
         </div>
       </div>
 
-      {/* BUTTON */}
       <button
         type="submit"
         disabled={isDisabled}
         className={`w-full mt-6 py-3 rounded-lg text-white font-semibold ${
           isOwner || isAdopted
-            ? "bg-gray-400 cursor-not-allowed"
+            ? "bg-gray-400 dark:bg-gray-700 cursor-not-allowed"
             : "bg-blue-600 hover:bg-blue-700"
         }`}
       >

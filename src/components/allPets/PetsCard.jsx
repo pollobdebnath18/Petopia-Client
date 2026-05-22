@@ -35,7 +35,7 @@ const PetsCard = ({ pet }) => {
       </div>
 
       {/* CONTENT */}
-      <div className="p-5 text-left">
+      <div className="p-5 text-left dark:bg-gray-800 dark:text-white/80">
         {/* Name + Age + Gender */}
         <h2 className=" font-bold">
           <span className="text-xl font-bold">{pet.petName}</span> •{" "}

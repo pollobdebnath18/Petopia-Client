@@ -4,6 +4,7 @@ import Link from "next/link";
 import BannerImg from "@/assets/banner_cat.avif";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { div } from "framer-motion/client";
 
 const container = {
   hidden: { opacity: 0 },
@@ -33,8 +34,8 @@ const ball = {
 
 const Banner = () => {
   return (
-    <section className="w-full bg-gradient-to-r from-blue-50 to-pink-50">
-      <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center gap-12">
+    <section className="w-full bg-gradient-to-r from-blue-50 to-pink-50 dark:from-gray-950 dark:via-gray-900 dark:to-black">
+      <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center gap-12 dark:bg-black">
         <motion.div
           variants={container}
           initial="hidden"
@@ -50,7 +51,10 @@ const Banner = () => {
           </motion.h1>
 
           {/* DESCRIPTION */}
-          <motion.p variants={item} className="mt-5 text-gray-600 text-lg">
+          <motion.p
+            variants={item}
+            className="mt-5 text-gray-600 text-lg dark:text-white/60"
+          >
             Discover adorable pets waiting for adoption. Connect with trusted
             owners and shelters, and bring happiness into your life by adopting
             a new best friend today.

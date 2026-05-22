@@ -56,12 +56,12 @@ const stories = [
 
 const SuccessStories = () => {
   return (
-    <section className="w-full py-20 bg-gray-200">
+    <section className="w-full py-20 bg-gray-200 dark:bg-black ">
       <div className="max-w-7xl mx-auto ">
       
         <div className="text-center px-6">
           <h2 className="text-4xl font-bold">Success Stories </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto dark:text-white/70">
             Explore real adoption experiences from Petopia users who found
             loyal, loving companions through our platform.
           </p>
@@ -74,7 +74,7 @@ const SuccessStories = () => {
               {stories.map((story, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-[280px] h-[280px] rounded-full bg-white border border-gray-200 shadow-md hover:shadow-2xl transition flex flex-col items-center justify-center text-center p-6 mx-4"
+                  className="flex-shrink-0 w-[280px] h-[280px] rounded-full bg-white border border-gray-200 shadow-md hover:shadow-2xl transition flex flex-col items-center justify-center text-center p-6 mx-4 dark:bg-gray-800 dark:text-white/70 dark:border-white/30"
                 >
                 
                   <img
@@ -91,7 +91,7 @@ const SuccessStories = () => {
                   </p>
 
                 
-                  <p className="mt-2 text-gray-600 text-xs leading-relaxed px-4">
+                  <p className="mt-2 text-gray-600 text-xs leading-relaxed px-4 dark:text-white/80">
                     {story.desc}
                   </p>
 

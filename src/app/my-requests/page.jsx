@@ -27,7 +27,7 @@ const MyRequests = async () => {
   const rejected = requests?.filter((r) => r.status === "rejected").length || 0;
 
   return (
-    <div className="max-w-6xl mx-auto px-4 md:px-6 pt-4 pb-10">
+    <div className="max-w-6xl mx-auto px-4 md:px-6 pt-4 pb-24">
       {/* HEADER */}
       <div className="text-center mb-12">
         <h1 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 text-transparent bg-clip-text">
@@ -48,7 +48,7 @@ const MyRequests = async () => {
 
           <h2 className="text-2xl font-bold text-gray-800">No Requests Yet</h2>
 
-          <p className="text-gray-500 mt-3 max-w-md mx-auto">
+          <p className="text-gray-500 mt-3 max-w-md mx-auto dark:text-white/50">
             You haven’t submitted any adoption requests yet.
           </p>
 
@@ -61,11 +61,13 @@ const MyRequests = async () => {
       ) : (
         <>
           {/* STATS */}
+          {/* STATS */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <StatCard
               title="Total Requests"
               value={total}
               icon={<PawPrint size={24} />}
+              className="bg-white dark:bg-zinc-950 border border-gray-100 dark:border-white/10"
             />
 
             <StatCard
@@ -73,6 +75,7 @@ const MyRequests = async () => {
               value={pending}
               icon={<Clock3 size={24} />}
               color="yellow"
+              className="bg-white dark:bg-zinc-950 border border-gray-100 dark:border-white/10"
             />
 
             <StatCard
@@ -80,6 +83,7 @@ const MyRequests = async () => {
               value={approved}
               icon={<CheckCircle2 size={24} />}
               color="green"
+              className="bg-white dark:bg-zinc-950 border border-gray-100 dark:border-white/10"
             />
 
             <StatCard
@@ -87,6 +91,7 @@ const MyRequests = async () => {
               value={rejected}
               icon={<XCircle size={24} />}
               color="red"
+              className="bg-white dark:bg-zinc-950 border border-gray-100 dark:border-white/10"
             />
           </div>
 

@@ -22,7 +22,7 @@ const AllPetsPage = async ({ searchParams }) => {
 
   return (
     <div>
-      <div className="mx-10 md:mx-6 max-w-6xl lg:mx-auto gap-10 ">
+      <div className="mx-10 md:mx-6 max-w-6xl lg:mx-auto gap-10 mb-28">
         <div className="text-center my-6 mb-12">
           <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 text-transparent bg-clip-text">
             All Pets 🐾

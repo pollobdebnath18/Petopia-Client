@@ -46,8 +46,8 @@ const AddForm = () => {
     }
   };
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50 flex items-center justify-center p-5">
-      <div className="w-full max-w-3xl bg-white/80 backdrop-blur-xl shadow-xl rounded-2xl p-5 border border-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50 flex items-center justify-center p-5 dark:from-slate-950 dark:via-zinc-900 dark:to-black mb-20">
+      <div className="w-full max-w-3xl bg-white/80 backdrop-blur-xl shadow-xl rounded-2xl p-5 border border-gray-100 dark:bg-black">
         <div className="flex items-center justify-between mb-6">
           {/* TITLE */}
           <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 text-transparent bg-clip-text">
@@ -63,7 +63,7 @@ const AddForm = () => {
     bg-gray-100 hover:bg-red-100
     text-gray-600 hover:text-red-500
     transition-all duration-300
-    cursor-pointer
+    cursor-pointer dark:bg-gray-300
   "
           >
             ✕
@@ -84,7 +84,7 @@ const AddForm = () => {
 
             <select
               name="species"
-              className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700"
             >
               <option value="">Select Species</option>
               <option value="Dog">Dog </option>
@@ -110,7 +110,7 @@ const AddForm = () => {
             />
             <select
               name="gender"
-              className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700"
             >
               <option value="">Select Gender</option>
               <option value="Male">Male </option>
